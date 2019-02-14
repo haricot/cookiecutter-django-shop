@@ -60,7 +60,7 @@
 				</tbody>
 			</table>
 			<!-- include "Add to Cart" dialog box -->
-			{% include {% endraw %}"{{ cookiecutter.app_name }}/catalog/smartphone-add2cart.html" {% raw %} %}
+			{% include {% endraw %}"{{ cookiecutter.app_name }}/catalog/smartphone-add2cart.html"  with use_modal_dialog=True{% raw %} %}
 		</div>
 	</div>
 </div>

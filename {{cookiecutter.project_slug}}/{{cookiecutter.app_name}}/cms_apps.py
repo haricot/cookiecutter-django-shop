@@ -22,7 +22,9 @@ class CatalogListApp(CatalogListCMSApp):
                 filter_class=ManufacturerFilterSet,
                 search_serializer_class=CatalogSearchSerializer,
             )),
-            url(r'^(?P<slug>[\w-]+)/?$', ProductRetrieveView.as_view()),
+            url(r'^(?P<slug>[\w-]+)/?$', ProductRetrieveView.as_view(
+                use_modal_dialog=False,
+            )),
             url(r'^(?P<slug>[\w-]+)/add-to-cart', AddToCartView.as_view()),
             url(r'^(?P<slug>[\w-]+)/add-smartphone-to-cart', AddToCartView.as_view(
                 serializer_class=AddSmartPhoneToCartSerializer,
@@ -38,6 +40,7 @@ class CatalogListApp(CatalogListCMSApp):
                 redirect_to_lonely_product=True,
             )),
             url(r'^(?P<slug>[\w-]+)/?$', ProductRetrieveView.as_view(
+                use_modal_dialog=False,
                 serializer_class=ProductDetailSerializer,
                 lookup_field='translations__slug'
             )),
@@ -55,6 +58,7 @@ class CatalogListApp(CatalogListCMSApp):
                 redirect_to_lonely_product=True,
             )),
             url(r'^(?P<slug>[\w-]+)/?$', ProductRetrieveView.as_view(
+                use_modal_dialog=False,
                 serializer_class=ProductDetailSerializer
             )),
             url(r'^(?P<slug>[\w-]+)/add-to-cart', AddToCartView.as_view()),
