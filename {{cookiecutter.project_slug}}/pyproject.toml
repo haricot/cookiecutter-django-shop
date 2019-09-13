@@ -9,7 +9,7 @@ authors = ["{{ cookiecutter.author_name }}"]
 python = "^3.6"
 
 [tool.poetry.dev-dependencies]
-django = "<2.2"
+django = "<2.0"
 djangocms-cascade =  { git = "https://github.com/jrief/djangocms-cascade.git", branch="releases/1.0.x" }
 django-compressor = "*"
 django-allauth = "*"
