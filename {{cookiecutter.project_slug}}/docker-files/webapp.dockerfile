@@ -14,6 +14,11 @@ RUN pip install --upgrade pip
 {%- if cookiecutter.dockerize == "runserver" %}
 COPY docker-files/entrypoint.sh /usr/local/bin/entrypoint.sh
 {%- else %}
+
+{%- if cookiecutter.travis == "y" %}
+COPY docker-compose.yml docker-compose.yml
+{%- endif %}
+
 # copy project relevant files into container
 ADD {{ cookiecutter.app_name }} /web/{{ cookiecutter.app_name }}
 COPY package.json /web/package.json
