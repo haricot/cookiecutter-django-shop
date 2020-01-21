@@ -8,7 +8,8 @@ language: python
 python: 3.6
 
 env:
-  - TOX_ENV=py36
+  global:
+    - TOX_ENV=py36
 
 before_install:
   - docker-compose -v
