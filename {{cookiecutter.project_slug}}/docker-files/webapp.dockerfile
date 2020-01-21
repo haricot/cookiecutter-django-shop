@@ -16,7 +16,7 @@ COPY docker-files/entrypoint.sh /usr/local/bin/entrypoint.sh
 {%- else %}
 
 {%- if cookiecutter.travis == "y" %}
-COPY docker-compose.yml docker-compose.yml
+COPY docker-compose.yml  /web/docker-compose.yml
 {%- endif %}
 
 # copy project relevant files into container
