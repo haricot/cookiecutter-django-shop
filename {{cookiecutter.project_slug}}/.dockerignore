@@ -1,6 +1,9 @@
 *
 !docker-files
 !{{ cookiecutter.app_name }}
+{%- if cookiecutter.travis == "y" %}
+!docker-compose.yml
+{%- endif %}
 !.coveragerc
 !.pylintrc
 !manage.py
