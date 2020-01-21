@@ -12,9 +12,10 @@ cd .cache/docker
 
 # create the project using the default settings in cookiecutter.json
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y debug="y"
-
+ls
 cd my-shop
-
+ls
+ls myshop
 # run the project's tests
 docker-compose -f myshop/docker-compose.yml run django python manage.py pytest
 
