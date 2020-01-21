@@ -12,7 +12,7 @@ cd .cache/docker
 
 # create the project using the default settings in cookiecutter.json
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y debug="y" travis="y"
-
+ls
 cd my-shop
 ls
 
