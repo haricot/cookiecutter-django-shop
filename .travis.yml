@@ -3,6 +3,12 @@ sudo: required
 services:
   - docker
 
+
+services:
+  django:
+    volumes:
+      - .:/.
+    
 language: python
 
 python: 3.6
