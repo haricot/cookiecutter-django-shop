@@ -1,6 +1,5 @@
 *
 !docker-files
-!docker-compose.yml
 !{{ cookiecutter.app_name }}
 !.coveragerc
 !.pylintrc
