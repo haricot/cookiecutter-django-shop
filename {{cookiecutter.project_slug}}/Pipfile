@@ -42,7 +42,7 @@ djangocms-bootstrap = "*"
 elasticsearch = "<1.8"
 libsass = "*"
 #django-shop = "<1.2"
-"b26de6a" = {file = "https://github.com/awesto/django-shop/archive/releases/1.2.x.zip"}
+"b26de6a" = {file = "https://github.com/awesto/django-shop/archive/releases/1.2.zip"}
 {% if cookiecutter.use_stripe == 'y' -%}
 djangoshop-stripe = "*"  {# "{{ cookiecutter.version }}" #}
 stripe = "<1.54"
