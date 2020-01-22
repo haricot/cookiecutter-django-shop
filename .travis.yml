@@ -22,7 +22,7 @@ before_install:
   - npm install -g npm@latest
 
 script:
-  - tox -e $TOX_ENV
+  #- tox -e $TOX_ENV
   - sh tests/test_docker.sh
 
 install:
