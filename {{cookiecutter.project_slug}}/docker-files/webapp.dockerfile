@@ -53,13 +53,17 @@ RUN ./manage.py collectstatic --noinput --ignore='*.scss'
 # run Django as different user
 RUN useradd -M -d /web -s /bin/bash django
 
-{% if cookiecutter.dockerize == "runserver" -%}
 
-USER django
 {% if cookiecutter.travis_ci== "y" -%}
 VOLUME $DJANGO_WORKDIR
+RUN chown -R django.django $DJANGO_STATIC_ROOT
+RUN chown -R django.django $DJANGO_WORKDIR
+RUN chown -R django.django /web/{{ cookiecutter.app_name }}/migrations
+
 {%- endif %}
 
+{% if cookiecutter.dockerize == "runserver" -%}
+USER django
 {%- else %}
 # handle permissions
 RUN chown -R django.django $DJANGO_STATIC_ROOT
