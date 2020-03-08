@@ -54,7 +54,13 @@ RUN ./manage.py collectstatic --noinput --ignore='*.scss'
 RUN useradd -M -d /web -s /bin/bash django
 
 {% if cookiecutter.dockerize == "runserver" -%}
+
 USER django
+{% if cookiecutter.travis_ci== "y" -%}
+RUN chown -R django:django "/web/.npm"
+VOLUME $DJANGO_WORKDIR
+{%- endif %}
+
 {%- else %}
 # handle permissions
 RUN chown -R django.django $DJANGO_STATIC_ROOT
