@@ -38,5 +38,5 @@
     "n"
   ],
   "debug": "n",
-  "travis-ci": "n"
+  "travis_ci": "n"
 }
