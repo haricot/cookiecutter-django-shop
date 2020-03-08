@@ -55,11 +55,10 @@ RUN useradd -M -d /web -s /bin/bash django
 
 
 {% if cookiecutter.travis_ci== "y" -%}
-VOLUME $DJANGO_WORKDIR
 RUN chown -R django.django $DJANGO_STATIC_ROOT
 RUN chown -R django.django $DJANGO_WORKDIR
 RUN chown -R django.django /web/{{ cookiecutter.app_name }}/migrations
-
+VOLUME $DJANGO_WORKDIR
 {%- endif %}
 
 {% if cookiecutter.dockerize == "runserver" -%}
