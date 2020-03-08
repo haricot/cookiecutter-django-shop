@@ -57,7 +57,6 @@ RUN useradd -M -d /web -s /bin/bash django
 
 USER django
 {% if cookiecutter.travis_ci== "y" -%}
-RUN chown -R django:django "/web/.npm"
 VOLUME $DJANGO_WORKDIR
 {%- endif %}
 
