@@ -7,7 +7,7 @@ ARG DJANGO_STATIC_ROOT=/web/staticfiles
 
 # install packages outside of PyPI
 RUN apt-get upgrade -y
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs optipng jpegoptim
 RUN pip install --upgrade pip
 {%- if cookiecutter.pip_dependency_manager == "poetry" %}
@@ -61,9 +61,16 @@ RUN ./manage.py collectstatic --noinput --ignore='*.scss'
 # run Django as different user
 RUN useradd -M -d /web -s /bin/bash django
 
-{% if cookiecutter.dockerize == "runserver" -%}
+
+{% if cookiecutter.travis_ci== "y" -%}
+COPY  . /web
+VOLUME $DJANGO_WORKDIR
+{%- endif %}
+
+{% if cookiecutter.dockerize == "runserver" and not cookiecutter.travis_ci== "y" -%}
 USER django
 {%- else %}
+
 # handle permissions
 RUN chown -R django.django $DJANGO_STATIC_ROOT
 RUN chown -R django.django $DJANGO_WORKDIR

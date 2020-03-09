@@ -41,5 +41,6 @@
     "inventory",
     "n"
   ],
-  "debug": "n"
+  "debug": "n",
+  "travis_ci": "n"
 }

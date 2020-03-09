@@ -3,6 +3,9 @@ version: '2.1'
 services:
   postgresdb:
     restart: always
+{%- if cookiecutter.travis_ci == "y" %}
+    user: "${UID}:${GID}"
+{%- endif %}
     image: postgres:10
     env_file:
       - docker-files/databases.environ
