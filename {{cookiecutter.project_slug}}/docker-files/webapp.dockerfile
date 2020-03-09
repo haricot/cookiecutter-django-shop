@@ -59,7 +59,7 @@ COPY  . /web
 VOLUME $DJANGO_WORKDIR
 {%- endif %}
 
-{% if cookiecutter.dockerize == "runserver" and not cookiecutter.travis_ci== "y -%}
+{% if cookiecutter.dockerize == "runserver" and not cookiecutter.travis_ci== "y" -%}
 USER django
 {%- else %}
 
