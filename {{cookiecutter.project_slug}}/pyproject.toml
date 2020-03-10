@@ -47,7 +47,7 @@ djangocms-bootstrap = "*"
 elasticsearch = "<1.8"
 libsass = "*"
 #django-shop = "<1.2"
-django-shop = { git = "https://github.com/haricot/django-shop.git", branch="releases/1.2" }
+django-shop = { git = "https://github.com/awesto/django-shop.git", branch="releases/1.2" }
 {% if cookiecutter.use_stripe == 'y' -%}
 djangoshop-stripe = "*"  {# "{{ cookiecutter.version }}" #}
 stripe = "<1.54"
