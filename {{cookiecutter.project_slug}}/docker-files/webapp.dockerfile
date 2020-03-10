@@ -7,7 +7,7 @@ ARG DJANGO_STATIC_ROOT=/web/staticfiles
 
 # install packages outside of PyPI
 RUN apt-get upgrade -y
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs optipng jpegoptim
 RUN pip install --upgrade pip
 {%- if cookiecutter.pip_dependency_manager == "poetry" %}
@@ -30,6 +30,7 @@ COPY docker-files/uwsgi.ini /etc/uwsgi.ini
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 {%- elif cookiecutter.pip_dependency_manager == "poetry" %}
+COPY pyproject.toml /web/pyproject.toml
 RUN $HOME/.poetry/bin/poetry config settings.virtualenvs.create false 
 RUN $HOME/.poetry/bin/poetry install 
 {%- endif %}
