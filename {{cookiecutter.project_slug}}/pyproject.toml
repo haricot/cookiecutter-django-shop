@@ -34,7 +34,7 @@ django-redis-sessions = "*"
 schedule = "*"
 uWSGI = "*"
 {% endif -%}
-djangorestframework = "*"
+djangorestframework = "<3.9.4"
 django-rest-auth = "*"
 django_polymorphic = "*"
 django-admin-sortable2 = "*"
