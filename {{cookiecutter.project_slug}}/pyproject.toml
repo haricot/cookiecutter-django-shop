@@ -28,7 +28,7 @@ django-parler = "*"
 django-parler-rest = "*"
 {% endif -%}
 {% if cookiecutter.dockerize != "n" -%}
-psycopg2-binary = "<2.8"
+psycopg2-binary = "<=2.8.4" # same host distribution package psycopg2
 django-redis-cache = "*"
 django-redis-sessions = "*"
 schedule = "*"
