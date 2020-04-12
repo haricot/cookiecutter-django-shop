@@ -556,6 +556,12 @@ CMSPLUGIN_CASCADE = {
          'shop.cascade.segmentation.EmulateCustomerAdminMixin'),
     ],
     'allow_plugin_hiding': True,
+    'fallback':{
+              'path_main_scss': '{{ cookiecutter.app_name }}/css/default.scss',
+              'image':{'color':'hsla(221.7, 57.5%, 84.3%, 0.8)', 'svg':''},
+              'picture':{'color':'hsla(0, 40%, 80.4%, 0.8)', 'svg':'' },
+              'jumbotron':{'color':'hsl(62, 90%, 90%, 0.8)', 'svg':''},
+             }
 }
 
 CKEDITOR_SETTINGS = {
